@@ -4,13 +4,22 @@
  * and open the template in the editor.
  */
 package Clases;
+import Conexión.Conexion;
 
 /**
  *
  * @author Neo Jigoku
  */
+
 public class Persona {
 
+    /**
+     * @return the Perfil
+     */
+    public int getPerfil() {
+        return Perfil;
+    }
+private int Perfil=1;
     /**
      * @return the rut
      */
@@ -130,5 +139,20 @@ public class Persona {
     private String correo;
     private String telefono;
     private String direccion;
+    public boolean insertar_datos(Persona p){
+        Conexion connect = new Conexion();
+boolean encontrado = false;
+        try {
+            connect.getConnection();
+            int i = connect.state.executeUpdate("INSERT persona VALUES ('"+p.getRut()+"','"+p.getNombre()+"','"
+                    +p.getApellido()+"','"+p.getSexo()+"','"+p.getContraseña()+"','"
+                    +p.getCorreo()+"','"+p.getTelefono()+"','"+p.getDireccion()+"',"+p.getPerfil());
+            if (i>0) {
+                encontrado=true;
+            }
+        } catch (Exception e) {
+        }
+return encontrado;
 }
-public boolean
+}
+
