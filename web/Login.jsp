@@ -11,8 +11,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link REL="StyleSheet" HREF="css/stylelogin.css" TYPE="text/css" >
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+                <script src="lib/jquery-1.9.0.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="src/jquery.maskedinput.js" type="text/javascript"></script>
         <title>Fruna QueryPrice</title>
-                      
+                    <script type="text/javascript">
+            jQuery(function($){
+     $("#rut").mask("99.999.999-*");
+     $("#cel").mask("+56999999999");
+});
+
+        </script>      
     </head>
     <body>
         <h1>Inicio de sesión</h1>
@@ -39,7 +47,7 @@
             <form method="POST" action="Insertar.jsp" id="register-form">   
             
           
-            <p>Rut: <input name="txtRut"  placeholder="Introduzca su RUT" type="text" ></p>
+            <p>Rut: <input name="txtRut"  placeholder="Introduzca su RUT" type="text" id="rut"></p>
             <p>Nombre: <input name="txtNombre" placeholder="Introduzca su nombre" type="text" ></p>
             <p>Apellidos: <input name="txtApellidos" placeholder="Introduzca su apellido" type="text" ></p> 
             <p>Sexo:  <input name="txtSexo" type="radio" value="Femenino" required>Femenino
@@ -48,16 +56,12 @@
             <p>Contraseña: <input name="txtPass" id="txtPass" placeholder="Introduzca contraseña" type="password" pattern="[A-Za-z0-9]{5,40}" title="Letras y números. Tamaño mínimo: 5. Tamaño máximo: 40"required></p>
             <p>Repetir contraseña: <input name="txtPass2"  id="txtPass2"placeholder="Repetir Contraseña" type="password" required></p>
             <p>Correo electronico: <input name="txtCorreo" placeholder="Introduzca su correo" type="email" ></p>
-            <p>Telefóno o Celular: <input name="txtTelefono"  placeholder="Introduzca su N° de teléfono" type="text" ></p>
+            <p>Telefóno o Celular: <input name="txtTelefono"  placeholder="Introduzca su N° de teléfono" type="text" id="cel"></p>
             <p>Dirección: <input name="txtDireccion"  placeholder="Introduzca su dirección" type="text" ></p>
             <p><input name="btnEnviar" type="submit" value="Registrarse" onclick="validar_clave(e)"></p>
            
         </form>
         </div>
-
-      <?php
-      echo "<p>Esta es mi quinta frase hecha con Php!</p>" ;
-    ?>
         
     </center>
  <script type="text/javascript">
